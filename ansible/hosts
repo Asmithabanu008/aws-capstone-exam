@@ -1,0 +1,6 @@
+[web]
+3.109.184.44
+43.204.19.172
+ 
+[web:vars]
+ansible_user=ubuntu
