@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>StreamLine - v1</title>
+  <style>
+    body { background: #f0f7ff; font-family: Arial, sans-serif; padding: 40px; }
+    .card { background: white; padding: 24px; border-radius: 8px; max-width: 600px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    h1 { color: #0a66c2; }
+    .meta { color: #555; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Welcome to StreamLine - v1</h1>
+    <p>This is the HA web tier served via an Application Load Balancer.</p>
+    <p class="meta">Server Hostname: <span id="hn">Loading...</span></p>
+    <p class="meta">Client IP (as seen by server): <span id="ip">Loading...</span></p>
+  </div>
+  <script>
+    // Because it's static HTML, we can only show client-visible data
+    document.getElementById('hn').innerText = window.location.hostname;
+    fetch('https://api.ipify.org?format=json').then(r=>r.json()).then(d=>{
+      document.getElementById('ip').innerText = d.ip;
+    }).catch(()=>{document.getElementById('ip').innerText='N/A';});
+  </script>
+</body>
+</html>
