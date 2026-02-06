@@ -307,7 +307,7 @@ resource "aws_instance" "web" {
 
   associate_public_ip_address = true
  
-  key_name = "pugal-key.pem-virginia"   # ← use your existing AWS key pair name
+  key_name = "25-nvirginia-key"   # ← use your existing AWS key pair name
  
   tags = {
 
